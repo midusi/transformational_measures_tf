@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow import keras as ks
 import numpy as np
 from model import Model
-from dataset import Dataset
+from dataset import DataSet
 from tqdm import tqdm
 
 

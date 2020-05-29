@@ -1,6 +1,6 @@
 # Metrics on Neural Network Models in TF 2
 
-In this library there are a set of python classes, developed in tensor flor 2,designed to be used in the calculus of different metrics on neural network models.  
+In this library, there are a set of python classes, developed in tensor flow 2,designed to be used in the calculus of different metrics on neural network models.  
 Besides, there are two metrics developed. These metrics are known as Invariance and Same Equivariance.
 
 
