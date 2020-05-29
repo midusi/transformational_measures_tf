@@ -2,32 +2,37 @@ import tensorflow as tf
 from tensorflow import keras as ks
 import matplotlib.pyplot as plt
 import numpy as np
-from modelo import Modelo
-from dataset import Dataset
-from iterador import Iterador
-from varianzas import VarianzaNormalizada
+from model import Model
+from dataset import DataSet
+from iterator import Iterator
+from variance import Variance
 
-ruta = ""
+path = ""
 
 
-modelo = Modelo(ruta+"/modelosimple.h5")
-dataset = Dataset()
-iterador = Iterador(modelo, dataset)
-#varianza_transformacional = VarianzaTransformacional(iterador,modelo.numero_capas(),modelo.numero_activaciones_por_capa())
-# varianza_transformacional.calcular(10,2)
-#varianza_muestral = VarianzaMuestral(iterador,modelo.numero_capas(),modelo.numero_activaciones_por_capa())
-# varianza_muestral.calcular(10,2)
+model = Model(path+"/modelosimple.h5")
+dataset = DataSet()
+iterator = Iterator(model, dataset)
 
-varianza_normalizada = VarianzaNormalizada(
-    iterador, modelo.numero_capas(), modelo.numero_activaciones_por_capa())
-varianza_normalizada.calcular(10, 2)
+variance = Variance(iterator)
 
-# plt.figure()
-# plt.title("transformacional")
-# plt.plot(modelo.capas_nombres,varianza_transformacional.varianza_capas)
-# print(varianza_transformacional.varianza_capas)
+variance.compute(10, 2)
 
 plt.figure()
-plt.title("transformacional")
-plt.plot(modelo.capas_nombres, varianza_normalizada.varianza_capas)
-print(varianza_normalizada.varianza_capas)
+plt.title("Transformational Variance")
+plt.plot(model.layers_names, variance.variance_layers)
+print(variance.variance_layers)
+
+model = Model(path+"/modelosimple.h5")
+dataset = DataSet()
+dataset.transpose()
+iterator = Iterator(model, dataset)
+
+variance = Variance(iterator)
+
+variance.compute(10, 2)
+
+plt.figure()
+plt.title("Muestral Variance")
+plt.plot(model.layers_names, variance.variance_layers)
+print(variance.variance_layers)
