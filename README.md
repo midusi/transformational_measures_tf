@@ -96,3 +96,56 @@ Returns the amount of activations in the model.
 #### Method: size_activations_layers
 
 Returns a list with the amount of activations in each layer of the model.
+
+
+
+## Class DataSet
+
+DataSet is an abstract class designed to represent a 2D dataset which will be used by the Iterator to iterate over the model. The implementations of the DataSet are responsability of the user and they are necessary to use the Iterator. An implementation available in this library is the MnistDataSet. 
+
+
+### Methods
+
+- get_data_shape
+- get_width
+- get_height
+- get_matrix
+- transpose
+
+
+#### Method: get_data_shape
+
+Returns the shape of the data in the matrix.
+
+#### Method: get_width
+
+Returns the matrix width.
+
+#### Method: get_height
+
+Returns the matrix height.
+
+#### Method: get_matrix
+
+**Arguments**
+
+- rows: a list of indices
+- columns: a list of indices
+<br/>
+
+**Returns**
+
+Returns a submatrix conformed by the rows and columns passed as arguments.
+
+
+#### Method: transpose
+
+Transpose the DataSet.
+
+
+
+## Class Iterator
+
+### Introduction
+
+
