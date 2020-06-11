@@ -1,5 +1,4 @@
 import tensorflow as tf
-from calculo_varianza import Calculo_Varianza
 from iterator import Iterator
 from time import time
 

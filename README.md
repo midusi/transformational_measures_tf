@@ -39,31 +39,23 @@ Another feature of the Class Model is that its method predict takes as argument 
 
 ### Usage
 
+<pre>
+
 <code>
 model_keras = ...  #instance of a Keras Model
-<br/>
 model = Model(model_keras=model_keras)
-<br/>
 input = ... # tensor of rank n>2
-<br/>
 output = model.predict(input)
-<br/>
 i=...
-<br/>
 j=...
-<br/>
 l=...
-<br/>
 print("Activations values for input[i][j] in the layer l " + output[(i,j,l)])
-<br/>
-<br/>
 #Another way of instantiating the class is the next
-<br/>
 path = ".../mymodel.h5" #path to the file .h5
-<br/>
 model = Model(path=path)
 
 </code>
+</pre>
 
 ### Methods
 
@@ -97,12 +89,9 @@ Returns the amount of activations in the model.
 
 Returns a list with the amount of activations in each layer of the model.
 
-
-
 ## Class DataSet
 
-DataSet is an abstract class designed to represent a 2D dataset which will be used by the Iterator to iterate over the model. The implementations of the DataSet are responsability of the user and they are necessary to use the Iterator. An implementation available in this library is the MnistDataSet. 
-
+DataSet is an abstract class designed to represent a 2D dataset which will be used by the Iterator to iterate over the model. The implementations of the DataSet are responsability of the user and they are necessary to use the Iterator. An implementation available in this library is the MnistDataSet.
 
 ### Methods
 
@@ -111,7 +100,6 @@ DataSet is an abstract class designed to represent a 2D dataset which will be us
 - get_height
 - get_matrix
 - transpose
-
 
 #### Method: get_data_shape
 
@@ -131,21 +119,65 @@ Returns the matrix height.
 
 - rows: a list of indices
 - columns: a list of indices
-<br/>
+  <br/>
 
 **Returns**
 
 Returns a submatrix conformed by the rows and columns passed as arguments.
 
-
 #### Method: transpose
 
 Transpose the DataSet.
-
-
 
 ## Class Iterator
 
 ### Introduction
 
+Let's consider we have a 2D dataset, for example a dataset of samples and transformations, and we want to get every value predicted by the model for each input in the dataset. If we think of all possible values that we will obtain and besides we divide these values into layers, it is possible to imagine some kind of data representation in the way showing in the next figure:
 
+![](DiagramaIterador1.png)
+
+Every square represents a matrix with the values of an activation for each input in the dataset. For instance, the first square represents the activation $a11$ and has the values $a11(ti(xj))$ with $i\ \varepsilon \ \{1,...,m\}$ and $j\ \varepsilon \ \{1,...,n\}$ where $a11(ti(xj))$ is the value of the activation $a11$ predicted by the model for the input $ti(xj)$.
+
+<br/>
+<br/>
+
+Now that we have a visual representation of the values we are looking for, it is easier to understand what the Iterator Class does. The Iterator gives you the possibility of moving and getting the values through blocks of width and height defined by yourself.  
+For example, let's consider a block of 3x3. The iterator allows you obtaining the data in the following way:
+
+![](DiagramaIterador2.png)
+![](DiagramaIterador3.png)
+![](DiagramaIterador4.png)
+
+### Usage
+
+<pre>
+<code>
+model = Model(...)
+dataset = DataSet(...)
+iterator = Iterator(model, dataset)
+height = 3
+width = 3
+for height, blocks in iterator.get_block(height, width):
+    #...
+    for width, block in blocks
+        #...    
+
+</code>
+</pre>
+
+#### Look at the Variance Class to have another using example!
+
+### Constructor
+
+**Arguments**
+
+- model: an instance of the Model class
+- dataset: an instance of the DataSet class
+
+<br/>
+
+### Methods
+
+- get_block
+- get_model
