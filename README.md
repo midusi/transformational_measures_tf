@@ -9,6 +9,11 @@ Besides, there are two metrics developed. These metrics are known as Invariance 
 2. DataSet
 3. Iterator
 
+### Others Classes
+
+1. MnistDataSet
+
+
 ### Metrics Classes
 
 1. Variance
@@ -193,6 +198,13 @@ for height, blocks in iterator.get_block(height, width):
 
 **Returns**
 
-Returns a "vertical" iterator where each item in this iterator is a tuple (height,horizontal_iterator) where horizontal_iterator is an "horizontal" iterator in which each item is a tuple (width,blocks) where blocks width is the width of the block and the height of the block is the height returned previously. 
+Returns a "vertical" iterator where each item in this iterator is a tuple (height,blocks_iterator) where blocks_iterator is an "horizontal" iterator in which each item is a tuple (width,block_activations) where block_activations is an object that indexes a three dimensional list through a tuple (i,j,l) where i represents the row and j represents the column corresponding to the block and l represents the l-layer of a model. The values in the list are the activations values in the layer l for the input located in the row i and the column j, and width is the width of the block and the height of the block is the height returned previously.  
+
+***Remark***
+
+When we say "vertical" iterator, we refer to the movement of the iterator in the block, the same happens with we say "horizontal" iterator.  
 
 
+#### Method: get_model
+
+Returns the model in the iterator. 

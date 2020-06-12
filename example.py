@@ -3,7 +3,7 @@ from tensorflow import keras as ks
 import matplotlib.pyplot as plt
 import numpy as np
 from model import Model
-from dataset import DataSet
+from mnistdataset import MnistDataSet
 from iterator import Iterator
 from variance import Variance
 
@@ -11,7 +11,7 @@ path = ""
 
 
 model = Model(path+"/modelosimple.h5")
-dataset = DataSet()
+dataset = MnistDataSet()
 iterator = Iterator(model, dataset)
 
 variance = Variance(iterator)
