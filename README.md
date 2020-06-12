@@ -181,3 +181,18 @@ for height, blocks in iterator.get_block(height, width):
 
 - get_block
 - get_model
+
+
+#### Method: get_block
+
+**Arguments**
+
+- height: the height of the block
+- width: the width of the block
+<br/>
+
+**Returns**
+
+Returns a "vertical" iterator where each item in this iterator is a tuple (height,horizontal_iterator) where horizontal_iterator is an "horizontal" iterator in which each item is a tuple (width,blocks) where blocks width is the width of the block and the height of the block is the height returned previously. 
+
+
