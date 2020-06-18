@@ -5,9 +5,9 @@ Besides, there are two metrics developed. These metrics are known as Invariance 
 
 ### Main Classes
 
-1. Model
-2. DataSet
-3. Iterator
+1. [Model](#Class-Model)
+2. [DataSet](#Class-DataSet)
+3. [Iterator](#Class-Iterator)
 
 ### Others Classes
 
