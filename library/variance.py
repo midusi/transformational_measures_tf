@@ -24,12 +24,10 @@ class Variance:
 
         calculations.finish()
 
-        #print("\r Transformacional Realizado: " + "100 %", end="")
 
         self.variance_layers = calculations.variance_layers
 
         self.time = time() - initial_time
-        #print("\rTiempo Transformacional: " + str(self.tiempo), end="")
 
 
 class Variance_Calculations:
@@ -37,7 +35,7 @@ class Variance_Calculations:
     def __init__(self, number_layers, number_activations_layers):
         self.number_activations_layers = number_activations_layers
         self.number_layers = number_layers
-        self.divisor_number = 0  # numero divisor de la varianza de la activación
+        self.divisor_number = 0  
         self.variance_layers_activations = [tf.zeros(
             [self.number_activations_layers[r]], dtype=tf.dtypes.float32) for r in range(self.number_layers)]
 

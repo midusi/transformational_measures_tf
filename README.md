@@ -28,11 +28,11 @@ Besides, there are two metrics developed. These metrics are known as Invariance 
 
 Let's supose we have a neural network model, as in the figure 1:
 
-![](DiagramaModel1.png)
+![](docs/images/DiagramaModel1.png)
 
 In detail, a neural network model is conformed by a series of layers as we can see in the figure 2:
 
-![](DiagramaModel2.png)
+![](docs/images/DiagramaModel2.png)
 
 where every layer has a set of activations that we call $aij$ being i the layer index and j the activation index.
 
@@ -44,9 +44,8 @@ Another feature of the Class Model is that its method predict takes as argument 
 
 ### Usage
 
-<pre>
+```python
 
-<code>
 model_keras = ...  #instance of a Keras Model
 model = Model(model_keras=model_keras)
 input = ... # tensor of rank n>2
@@ -59,8 +58,7 @@ print("Activations values for input[i][j] in the layer l " + output[(i,j,l)])
 path = ".../mymodel.h5" #path to the file .h5
 model = Model(path=path)
 
-</code>
-</pre>
+```
 
 ### Methods
 
@@ -140,7 +138,7 @@ Transpose the DataSet.
 
 Let's consider we have a 2D dataset, for example a dataset of samples and transformations, and we want to get every value predicted by the model for each input in the dataset. If we think of all possible values that we will obtain and besides we divide these values into layers, it is possible to imagine some kind of data representation in the way showing in the next figure:
 
-![](DiagramaIterador1.png)
+![](docs/images/DiagramaIterador1.png)
 
 Every square represents a matrix with the values of an activation for each input in the dataset. For instance, the first square represents the activation $a11$ and has the values $a11(ti(xj))$ with $i\ \varepsilon \ \{1,...,m\}$ and $j\ \varepsilon \ \{1,...,n\}$ where $a11(ti(xj))$ is the value of the activation $a11$ predicted by the model for the input $ti(xj)$.
 
@@ -150,14 +148,13 @@ Every square represents a matrix with the values of an activation for each input
 Now that we have a visual representation of the values we are looking for, it is easier to understand what the Iterator Class does. The Iterator gives you the possibility of moving and getting the values through blocks of width and height defined by yourself.  
 For example, let's consider a block of 3x3. The iterator allows you obtaining the data in the following way:
 
-![](DiagramaIterador2.png)
-![](DiagramaIterador3.png)
-![](DiagramaIterador4.png)
+![](docs/images/DiagramaIterador2.png)
+![](docs/images/DiagramaIterador3.png)
+![](docs/images/DiagramaIterador4.png)
 
 ### Usage
 
-<pre>
-<code>
+```python
 model = Model(...)
 dataset = DataSet(...)
 iterator = Iterator(model, dataset)
@@ -167,9 +164,11 @@ for height, blocks in iterator.get_block(height, width):
     #...
     for width, block in blocks
         #...    
+```
 
-</code>
-</pre>
+
+
+
 
 #### Look at the Variance Class to have another using example!
 
