@@ -16,7 +16,7 @@ Besides, there are two metrics developed. These metrics are known as Invariance 
 
 ### Metrics Classes
 
-1. Variance
+1. [Variance](#Class-Variance)
 2. Same Equivariance
 
 <br/>
@@ -207,3 +207,61 @@ When we say "vertical" iterator, we refer to the movement of the iterator in the
 #### Method: get_model
 
 Returns the model in the iterator. 
+
+
+## Class Variance
+
+### Introduction
+
+Let's A be an activation in our model. One way to define the variance of A for a DataSet X is as follows:
+
+Var(A,X)="The mean of the variance for every row in X", i.e., 
+
+![](docs/images/variance1.png)
+
+Similarly, it can be defined the variance for a Layer in the Model. 
+
+![](docs/images/variance2.png)
+
+So, the class variance compute these values for a dataset X and a model M using the Iterator. 
+
+### Usage
+
+```python
+model = Model(...)
+dataset = DataSet(...)
+iterator = Iterator(model, dataset)
+variance = Variance(Iterator)
+variance.compute()
+print(variance.variance_layers)
+```
+
+### Constructor
+
+**Arguments**
+
+- iterator: it is an instance of the Iterator class
+
+<br/>
+
+### Methods
+
+- compute
+
+
+#### Method: compute
+
+**Arguments**
+
+- height: it is the height of the block to iterate
+- width: it is the width of the block to iterate
+<br/>
+
+**Returns**
+
+Returns a tuple (variance_layers,variance_layers_activations) where:
+
+- variance_layers: it is a list with the variance of every layer
+- variance_layers_activations: it is a list where each element in the list is a list with the variance of every activation in the respective layer 
+
+

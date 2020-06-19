@@ -26,8 +26,11 @@ class Variance:
 
 
         self.variance_layers = calculations.variance_layers
+        self.variance_layers_activations = calculations.variance_layers_activations
 
         self.time = time() - initial_time
+
+        return (self.variance_layers,self.variance_layers_activations)
 
 
 class Variance_Calculations:
