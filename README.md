@@ -223,7 +223,7 @@ Similarly, it can be defined the variance for a Layer in the Model.
 
 ![](docs/images/variance2.png)
 
-So, the class variance compute these values for a dataset X and a model M using the Iterator. 
+So, the class variance computes these values for a dataset X and a model M using the Iterator. 
 
 ### Usage
 
