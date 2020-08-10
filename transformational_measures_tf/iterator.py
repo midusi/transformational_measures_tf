@@ -15,15 +15,15 @@ class Iterator:
 
     Attributes
     ----------
-    
+
     Methods
     -------
     get_model()
         Returns the model.
     get_block(width:int,height:int)
         Returns the block iterator.
-    
-    
+
+
     """
 
     def __init__(self, model: Model, dataset: DataSet):
@@ -45,7 +45,7 @@ class Iterator:
         -------
         model:Model
             Returns the model
-            
+
         """
         return self.model
 
@@ -81,8 +81,11 @@ class Iterator:
         batchs = self.generate_batchs(width, self.m)
         for batch in batchs:
             x = self.dataset.get_matrix(batch_vertical, batch)
-            x = self.model.predict(x)
-            yield len(batch), x
+            bloque = self.model.predict(x)
+            bloque.set_rows_dataset(batch_vertical)
+            bloque.set_columns_dataset(batch)
+            bloque.set_state_transpose_dataset(self.dataset.is_transpose())
+            yield len(batch), bloque
 
     def generate_batchs(self, size_batch, n):
         aux = range(n)
