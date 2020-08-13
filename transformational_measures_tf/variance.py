@@ -1,6 +1,6 @@
 import tensorflow as tf
-from iterator import Iterator
 from time import time
+from iterator import Iterator
 from metric import Metric
 
 

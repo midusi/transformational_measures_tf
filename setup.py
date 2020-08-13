@@ -12,8 +12,9 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 
-url="https://github.com/midusi/transformational_measures_tf/"
-VERSION="0.5alpha"
+url = "https://github.com/midusi/transformational_measures_tf/"
+VERSION = "0.63alpha"
+
 
 class UploadCommand(Command):
     """Support setup.py upload."""
@@ -33,7 +34,7 @@ class UploadCommand(Command):
         pass
 
     def run(self):
-        dist_path=Path(this_directory)/'dist'
+        dist_path = Path(this_directory)/'dist'
         if dist_path.exists():
             self.status('Removing previous builds…')
             rmtree(dist_path)
@@ -95,7 +96,7 @@ setup(
         "Development Status :: 4 - Beta",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Scientific/Engineering :: Visualization",
-        
+
     ],
 
     # could also include long_description, download_url, etc.

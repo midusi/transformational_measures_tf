@@ -1,10 +1,10 @@
 import tensorflow as tf
-from iterator import Iterator
 from time import time
 from variance import Variance
-from metric import Metric
 from transformationsdataset import TransformationsDataSet
 from variance import VarianceCalculations
+from iterator import Iterator
+from metric import Metric
 
 
 class SameEquivariance:

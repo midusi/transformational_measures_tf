@@ -1,8 +1,8 @@
+import matplotlib.pyplot as plt
 from model import Model
 from transformationsdataset import TransformationsDataSet
-from metric import Metric
 from iterator import Iterator
-import matplotlib.pyplot as plt
+from metric import Metric
 
 
 class Analyzer:

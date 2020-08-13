@@ -1,5 +1,4 @@
 import tensorflow as tf
-from tensorflow import keras as ks
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -47,7 +46,7 @@ class Model:
         self.layers_names = [
             name[:name.index('/')]for name in self.layers_names]
 
-        self.model_layers = ks.models.Model(
+        self.model_layers = tf.keras.models.Model(
             inputs=self.model_keras.input, outputs=self.layers_outpus)
 
         self.model_structure = ModelStructure(self.model_keras)

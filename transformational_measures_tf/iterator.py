@@ -1,9 +1,6 @@
-import tensorflow as tf
-from tensorflow import keras as ks
-import numpy as np
-from model import Model
-from dataset import DataSet
 from tqdm import tqdm
+from transformational_measures_tf.dataset import DataSet
+from transformational_measures_tf.model import Model
 
 
 class Iterator:
