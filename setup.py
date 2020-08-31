@@ -13,7 +13,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 
 url = "https://github.com/midusi/transformational_measures_tf/"
-VERSION = "0.63alpha"
+VERSION = "0.72alpha"
 
 
 class UploadCommand(Command):

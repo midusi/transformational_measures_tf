@@ -6,8 +6,12 @@ from .transformations import Transformation
 from .transformations import AffineTransformation
 from .transformationsdataset import TransformationsDataSet
 from .mnisttransformations import MnistTransformationsDataSet
+from .cifar10transformations import Cifar10TransformationsDataSet
 from .graphs import Graphs
 from .variance import Variance
 from .featuresvariance import FeaturesVariance
 from .sameequivariance import SameEquivariance
+from .normalizedvariance import NormalizedVariance
+from .normalizedfeaturesvariance import NormalizedFeaturesVariance
+from .normalizedsameequivariance import NormalizedSameEquivariance
 from .analyzer import Analyzer

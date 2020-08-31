@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 import tensorflow as tf
-from dataset import DataSet
+from transformational_measures_tf.dataset import DataSet
 
 
 class TransformationsDataSet(DataSet):

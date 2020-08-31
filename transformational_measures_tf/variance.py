@@ -1,7 +1,7 @@
 import tensorflow as tf
 from time import time
-from iterator import Iterator
-from metric import Metric
+from transformational_measures_tf.iterator import Iterator
+from transformational_measures_tf.metric import Metric
 
 
 class Variance(Metric):

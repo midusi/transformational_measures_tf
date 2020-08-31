@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from iterator import Iterator
+from transformational_measures_tf.iterator import Iterator
 
 
 class Metric(ABC):

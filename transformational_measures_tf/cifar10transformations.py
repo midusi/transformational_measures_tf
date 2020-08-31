@@ -5,20 +5,21 @@ from transformational_measures_tf.transformationsdataset import TransformationsD
 from transformational_measures_tf.transformations import AffineTransformation
 
 
-class MnistTransformationsDataSet(TransformationsDataSet):
+class Cifar10TransformationsDataSet(TransformationsDataSet):
 
     def __init__(self):
 
-        self.data = tf.keras.datasets.mnist.load_data()
+        self.data = tf.keras.datasets.cifar10.load_data()
         self.results = self.data[1][1]
         self.samples = self.data[1][0]
-        self.samples = self.samples.reshape(-1, 28, 28, 1)
+        # self.samples = self.samples.reshape(-1, 28, 28, 1) ya no es necesaria (32x32x3)
         self.height = self.samples.shape[0]
         self.mean = np.mean(self.data[0][0])
         self.std = np.std(self.data[0][0])
         # Samples Normalization
         for i in range(self.height):
-            self.samples[i, :, :] = (self.samples[i, :, :]-self.mean)/self.std
+            self.samples[i, :, :] = (
+                self.samples[i, :, :, :]-self.mean)/self.std
 
         self.original_samples = self.samples
         self.original_results = self.results
@@ -46,7 +47,7 @@ class MnistTransformationsDataSet(TransformationsDataSet):
     def get_matrix(self, rows, columns):
         m = []
 
-        if(self.matrix_transpose == False):
+        if self.matrix_transpose == False:
             for i in rows:
                 x = [self.transformations[j].apply(
                     self.samples[i]) for j in columns]
@@ -60,6 +61,7 @@ class MnistTransformationsDataSet(TransformationsDataSet):
         return tf.convert_to_tensor(m)
 
     # overriding abstract method
+
     def transpose(self):
         if(self.matrix_transpose == True):
             self.matrix_transpose = False

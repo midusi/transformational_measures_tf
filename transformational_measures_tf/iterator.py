@@ -1,3 +1,5 @@
+
+
 from tqdm import tqdm
 from transformational_measures_tf.dataset import DataSet
 from transformational_measures_tf.model import Model
@@ -45,6 +47,17 @@ class Iterator:
 
         """
         return self.model
+
+    def transpose(self):
+        """
+        Transpose the dataset
+        Parameters
+        ----------
+
+        """
+        self.dataset.transpose()
+        self.n = self.dataset.get_height()
+        self.m = self.dataset.get_width()
 
     def get_block(self, height: int, width: int):
         """

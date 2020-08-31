@@ -1,8 +1,8 @@
 import tensorflow as tf
-from iterator import Iterator
+from transformational_measures_tf.iterator import Iterator
 from time import time
-from variance import Variance
-from metric import Metric
+from transformational_measures_tf.variance import Variance
+from transformational_measures_tf.metric import Metric
 
 
 class FeaturesVariance(Metric):
